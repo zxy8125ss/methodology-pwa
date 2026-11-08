@@ -21,6 +21,11 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      GITHUB_TOKEN_DATA: ${{ secrets.DATA_REPO_TOKEN }}
+      GITHUB_OWNER: ${{ vars.GITHUB_OWNER || 'zxy8125ss' }}
+      GITHUB_REPO: ${{ vars.GITHUB_REPO || 'methodology-data' }}
+      DATA_REPO_BRANCH: ${{ vars.DATA_REPO_BRANCH || 'main' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,10 +40,6 @@ jobs:
         run: npm ci
 
       - name: Validate schema
-        env:
-          GITHUB_TOKEN_DATA: ${{ secrets.DATA_REPO_TOKEN }}
-          GITHUB_OWNER: ${{ vars.GITHUB_OWNER || 'zxy8125ss' }}
-          GITHUB_REPO: ${{ vars.GITHUB_REPO || 'methodology-data' }}
         run: npx tsx scripts/validate-data.ts
 
       - name: Build indexes
