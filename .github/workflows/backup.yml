@@ -1,0 +1,48 @@
+name: Backup Data
+
+on:
+  schedule:
+    # 每月 1 日 02:00 UTC
+    - cron: '0 2 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create backup
+        env:
+          GITHUB_TOKEN_DATA: ${{ secrets.DATA_REPO_TOKEN }}
+          GITHUB_OWNER: ${{ vars.GITHUB_OWNER || 'zxy8125ss' }}
+          GITHUB_REPO: ${{ vars.GITHUB_REPO || 'methodology-data' }}
+          DATA_REPO_BRANCH: main
+        run: |
+          if [ -z "$GITHUB_TOKEN_DATA" ]; then
+            echo "::error::缺少 DATA_REPO_TOKEN secret"
+            exit 1
+          fi
+          npx tsx scripts/backup.ts
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: methodology-backup
+          path: backups/
+          retention-days: 90
+          if-no-files-found: warn

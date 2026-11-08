@@ -1,0 +1,91 @@
+name: Weekly Research
+
+on:
+  schedule:
+    # 每周一 03:00 UTC（北京时间 11:00）
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      target:
+        description: '研究目标（留空则自动选题）'
+        required: false
+        type: string
+      count:
+        description: '本次研究条数'
+        required: false
+        default: '3'
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weekly-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout site repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Run weekly research
+        id: research
+        env:
+          # GitHub Actions Secrets —— 密钥不出现在日志与仓库中
+          GITHUB_TOKEN_DATA: ${{ secrets.DATA_REPO_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+          GITHUB_OWNER: ${{ vars.GITHUB_OWNER || 'zxy8125ss' }}
+          GITHUB_REPO: ${{ vars.GITHUB_REPO || 'methodology-data' }}
+          DATA_REPO_BRANCH: main
+          RESEARCH_TARGET: ${{ inputs.target }}
+          RESEARCH_COUNT: ${{ inputs.count || '3' }}
+        run: |
+          # 缺少密钥时明确失败，而不是静默跳过
+          if [ -z "$GITHUB_TOKEN_DATA" ]; then
+            echo "::error::缺少 DATA_REPO_TOKEN secret，无法访问数据仓"
+            exit 1
+          fi
+          if [ -z "$ANTHROPIC_API_KEY" ] && [ -z "$DEEPSEEK_API_KEY" ]; then
+            echo "::error::缺少 AI 密钥（ANTHROPIC_API_KEY 或 DEEPSEEK_API_KEY）"
+            exit 1
+          fi
+          npx tsx scripts/run-weekly-research.ts
+
+      - name: Upload research report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-research-log
+          path: research-logs/
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Notify failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            await github.rest.issues.create({
+              owner, repo,
+              title: '每周研究任务失败',
+              body: `自动研究任务执行失败，请检查 Actions 日志。\n\n运行编号：${context.runNumber}`,
+            });
