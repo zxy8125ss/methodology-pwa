@@ -195,13 +195,24 @@ export class GitHubClient {
     return null;
   }
 
-  /** 递归列出仓库文件树 */
+  /**
+   * 递归列出仓库文件树
+   *
+   * 注意：GitHub 的 `git/trees/{branch}:{path}` 语法返回的 entry.path
+   * 是**相对于该子目录**的（如 `method_pdca.json`），不是仓库全路径。
+   * 这里统一补回前缀，保证调用方拿到的始终是仓库内完整路径。
+   */
   async listTree(dirPath = ''): Promise<GhTreeEntry[]> {
     const query = dirPath ? `${encodePath(dirPath)}/` : '';
     const res = await this.request<{ tree: GhTreeEntry[]; truncated: boolean }>(
       `/repos/${this.owner}/${this.repo}/git/trees/${this.branch}:${query}?recursive=1`,
     );
-    return res.tree || [];
+    const tree = res.tree || [];
+    if (!dirPath) return tree;
+    const prefix = `${dirPath.replace(/\/$/, '')}/`;
+    return tree.map((t) =>
+      t.path.startsWith(prefix) ? t : { ...t, path: `${prefix}${t.path}` },
+    );
   }
 
   /** 列出某目录下的文件 */

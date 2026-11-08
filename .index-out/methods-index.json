@@ -1,0 +1,272 @@
+{
+  "generatedAt": "2026-11-08T11:53:11.944Z",
+  "entries": [
+    {
+      "id": "method_first_principles",
+      "name": "第一性原理",
+      "aliases": [
+        "First Principles",
+        "第一性原理思维"
+      ],
+      "domainIds": [
+        "thinking"
+      ],
+      "type": "principle",
+      "evidenceLevel": "medium",
+      "confidence": 0.7,
+      "status": "approved",
+      "tags": [
+        "推理方式",
+        "拆解",
+        "突破"
+      ],
+      "updatedAt": "2026-11-08T11:51:26.704Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "把问题拆解到最基本、不可再分的事实前提上，再从这些前提重新推导结论，而不是从类比和惯例出发。"
+    },
+    {
+      "id": "method_pareto",
+      "name": "二八法则",
+      "aliases": [
+        "Pareto Principle",
+        "80/20 法则",
+        "帕累托法则"
+      ],
+      "domainIds": [
+        "thinking",
+        "work_methods"
+      ],
+      "type": "principle",
+      "evidenceLevel": "high",
+      "confidence": 0.85,
+      "status": "approved",
+      "tags": [
+        "优先级",
+        "资源分配",
+        "分布"
+      ],
+      "updatedAt": "2026-11-08T11:51:34.969Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "在许多分布中，约 80% 的结果来自 20% 的原因。识别出这关键的少数，把资源集中到那里。"
+    },
+    {
+      "id": "method_feynman",
+      "name": "费曼学习法",
+      "aliases": [
+        "Feynman Technique",
+        "以教代学",
+        "费曼技巧"
+      ],
+      "domainIds": [
+        "learning"
+      ],
+      "type": "process",
+      "evidenceLevel": "low",
+      "confidence": 0.6,
+      "status": "approved",
+      "tags": [
+        "学习方法",
+        "输出",
+        "自检"
+      ],
+      "updatedAt": "2026-11-08T11:51:33.358Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "假装向一个外行讲解你正在学的东西，用最朴素的语言讲清楚。讲不下去的地方，就是你还没真懂的地方。"
+    },
+    {
+      "id": "method_kaizen",
+      "name": "改善",
+      "aliases": [
+        "Kaizen",
+        "持续改善",
+        "渐进式改进"
+      ],
+      "domainIds": [
+        "work_methods"
+      ],
+      "type": "principle",
+      "evidenceLevel": "high",
+      "confidence": 0.85,
+      "status": "approved",
+      "tags": [
+        "持续改进",
+        "精益",
+        "一线赋能"
+      ],
+      "updatedAt": "2026-11-08T11:51:43.749Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "把改进理解为无数微小、连续、由一线人员发起的改变累积，而不是偶尔的大规模重构；每个改进都小到低风险、可行且立即可见。"
+    },
+    {
+      "id": "method_spaced_repetition",
+      "name": "间隔重复",
+      "aliases": [
+        "Spaced Repetition",
+        "间隔效应",
+        "Spaced Practice"
+      ],
+      "domainIds": [
+        "learning"
+      ],
+      "type": "principle",
+      "evidenceLevel": "high",
+      "confidence": 0.85,
+      "status": "approved",
+      "tags": [
+        "学习",
+        "记忆",
+        "复习",
+        "间隔效应"
+      ],
+      "updatedAt": "2026-11-08T11:51:41.400Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "在即将遗忘的临界点安排复习，用逐步拉长的复习间隔维持记忆；每次成功回忆都提高下次间隔，失败则缩短间隔。"
+    },
+    {
+      "id": "method_retrospective",
+      "name": "结构化复盘",
+      "aliases": [
+        "复盘方法",
+        "After Action Review",
+        "AAR",
+        "回顾分析"
+      ],
+      "domainIds": [
+        "work_methods",
+        "personal_growth"
+      ],
+      "type": "process",
+      "evidenceLevel": "medium",
+      "confidence": 0.75,
+      "status": "approved",
+      "tags": [
+        "经验总结",
+        "改进",
+        "反思"
+      ],
+      "updatedAt": "2026-11-08T11:51:30.570Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "在事件结束后系统回顾：原本预期发生什么、实际发生了什么、差异出在哪里、下次怎么改。核心不是追责，而是提取可复用的学习。"
+    },
+    {
+      "id": "method_decision_tree",
+      "name": "决策树",
+      "aliases": [
+        "Decision Tree",
+        "决策树分析"
+      ],
+      "domainIds": [
+        "thinking",
+        "communication"
+      ],
+      "type": "tool",
+      "evidenceLevel": "medium",
+      "confidence": 0.75,
+      "status": "approved",
+      "tags": [
+        "决策",
+        "结构化",
+        "可视化"
+      ],
+      "updatedAt": "2026-11-08T11:51:36.961Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "用树状结构表达决策：每个节点是一个选择或机会事件，分支是可能的结果，叶节点是最终结局。结构化之后，选择的逻辑和风险点都变得可见。"
+    },
+    {
+      "id": "method_system_thinking",
+      "name": "系统思维",
+      "aliases": [
+        "Systems Thinking",
+        "系统思考",
+        "Systems Approach"
+      ],
+      "domainIds": [
+        "thinking"
+      ],
+      "type": "framework",
+      "evidenceLevel": "high",
+      "confidence": 0.8,
+      "status": "approved",
+      "tags": [
+        "系统思维",
+        "复杂性",
+        "反馈回路",
+        "杠杆点"
+      ],
+      "updatedAt": "2026-11-08T11:51:38.946Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "把研究对象看作一个由相互关联的元素构成的整体系统，通过识别结构、反馈回路与时滞，理解系统行为为何偏离直觉，从而找到高杠杆点的干预位置。"
+    },
+    {
+      "id": "method_okr",
+      "name": "OKR 目标管理法",
+      "aliases": [
+        "Objectives and Key Results",
+        "目标与关键结果"
+      ],
+      "domainIds": [
+        "management"
+      ],
+      "type": "framework",
+      "evidenceLevel": "medium",
+      "confidence": 0.8,
+      "status": "approved",
+      "tags": [
+        "目标管理",
+        "战略对齐",
+        "量化"
+      ],
+      "updatedAt": "2026-11-08T11:51:24.979Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "用一个鼓舞人心的定性目标（Objective）指明方向，再用若干可量化的关键结果（Key Results）定义「怎样算达成」。目标负责对齐方向，关键结果负责让进展可见。"
+    },
+    {
+      "id": "method_pdca",
+      "name": "PDCA 循环",
+      "aliases": [
+        "Plan-Do-Check-Act",
+        "戴明循环",
+        "PDCA 循环法"
+      ],
+      "domainIds": [
+        "management",
+        "work_methods"
+      ],
+      "type": "process",
+      "evidenceLevel": "high",
+      "confidence": 0.85,
+      "status": "approved",
+      "tags": [
+        "持续改进",
+        "质量管理",
+        "闭环"
+      ],
+      "updatedAt": "2026-11-08T11:51:22.827Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "把改进工作拆成「计划—执行—检查—处理」四个阶段闭环循环，通过不断迭代实现持续改进。每轮循环的检查结果直接进入下一轮的计划环节，形成自我修正的机制。"
+    },
+    {
+      "id": "method_swot",
+      "name": "SWOT 分析",
+      "aliases": [
+        "Strengths Weaknesses Opportunities Threats",
+        "四象限分析法"
+      ],
+      "domainIds": [
+        "thinking",
+        "business"
+      ],
+      "type": "framework",
+      "evidenceLevel": "medium",
+      "confidence": 0.75,
+      "status": "approved",
+      "tags": [
+        "战略分析",
+        "环境扫描"
+      ],
+      "updatedAt": "2026-11-08T11:51:28.238Z",
+      "lastResearchedAt": "2026-11-08T11:51:17.063Z",
+      "summary": "从内部优势、内部劣势、外部机会、外部威胁四个维度描述现状，形成一张结构化的战略分析表。"
+    }
+  ]
+}

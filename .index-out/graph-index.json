@@ -1,0 +1,145 @@
+{
+  "generatedAt": "2026-11-08T11:53:11.945Z",
+  "entries": [
+    {
+      "id": "method_first_principles",
+      "name": "第一性原理",
+      "domainIds": [
+        "thinking"
+      ],
+      "type": "principle",
+      "degree": 2,
+      "links": [
+        "method_system_thinking",
+        "method_decision_tree"
+      ]
+    },
+    {
+      "id": "method_pareto",
+      "name": "二八法则",
+      "domainIds": [
+        "thinking",
+        "work_methods"
+      ],
+      "type": "principle",
+      "degree": 1,
+      "links": [
+        "method_decision_tree"
+      ]
+    },
+    {
+      "id": "method_feynman",
+      "name": "费曼学习法",
+      "domainIds": [
+        "learning"
+      ],
+      "type": "process",
+      "degree": 1,
+      "links": [
+        "method_retrospective"
+      ]
+    },
+    {
+      "id": "method_kaizen",
+      "name": "改善",
+      "domainIds": [
+        "work_methods"
+      ],
+      "type": "principle",
+      "degree": 0,
+      "links": []
+    },
+    {
+      "id": "method_spaced_repetition",
+      "name": "间隔重复",
+      "domainIds": [
+        "learning"
+      ],
+      "type": "principle",
+      "degree": 0,
+      "links": []
+    },
+    {
+      "id": "method_retrospective",
+      "name": "结构化复盘",
+      "domainIds": [
+        "work_methods",
+        "personal_growth"
+      ],
+      "type": "process",
+      "degree": 2,
+      "links": [
+        "method_pdca",
+        "method_feynman"
+      ]
+    },
+    {
+      "id": "method_decision_tree",
+      "name": "决策树",
+      "domainIds": [
+        "thinking",
+        "communication"
+      ],
+      "type": "tool",
+      "degree": 3,
+      "links": [
+        "method_first_principles",
+        "method_pareto",
+        "method_swot"
+      ]
+    },
+    {
+      "id": "method_system_thinking",
+      "name": "系统思维",
+      "domainIds": [
+        "thinking"
+      ],
+      "type": "framework",
+      "degree": 1,
+      "links": [
+        "method_first_principles"
+      ]
+    },
+    {
+      "id": "method_okr",
+      "name": "OKR 目标管理法",
+      "domainIds": [
+        "management"
+      ],
+      "type": "framework",
+      "degree": 2,
+      "links": [
+        "method_pdca",
+        "method_swot"
+      ]
+    },
+    {
+      "id": "method_pdca",
+      "name": "PDCA 循环",
+      "domainIds": [
+        "management",
+        "work_methods"
+      ],
+      "type": "process",
+      "degree": 2,
+      "links": [
+        "method_retrospective",
+        "method_okr"
+      ]
+    },
+    {
+      "id": "method_swot",
+      "name": "SWOT 分析",
+      "domainIds": [
+        "thinking",
+        "business"
+      ],
+      "type": "framework",
+      "degree": 2,
+      "links": [
+        "method_okr",
+        "method_decision_tree"
+      ]
+    }
+  ]
+}

@@ -131,7 +131,11 @@ async function main(): Promise<void> {
   for (const [name, data] of files) {
     const content = JSON.stringify(data, null, 2);
     await writeFile(join(outDir, name), content, 'utf8');
-    await client.putJson(`indexes/${name}`, data);
+    // 用 mutateJson（读→改→写，自动带 sha），
+    // 直接 putJson 不带 sha 在文件已存在时会被 GitHub 拒绝（422）
+    await client.mutateJson(`indexes/${name}`, () => data as never, {
+      message: `feat(index): update indexes/${name}`,
+    });
     console.log(`已写入 indexes/${name}（${(content.length / 1024).toFixed(1)} KB）`);
   }
 }
